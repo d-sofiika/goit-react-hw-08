@@ -1,7 +1,7 @@
 import css from "./contact.module.css";
 import { IoAccessibilityOutline } from "react-icons/io5";
 import { IoCallOutline } from "react-icons/io5";
-import { deleteContact } from "../../redux/contactsOps";
+import { deleteContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
 
 const Contact = ({ data: { id, name, number } }) => {
