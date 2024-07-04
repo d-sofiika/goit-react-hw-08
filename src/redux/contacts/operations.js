@@ -8,9 +8,9 @@ axios.defaults.baseURL = "https://connections-api.goit.global/";
 export const fetchContact =  createAsyncThunk("contacts/fetchAll",
  async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/contacts");
+      const {data} = await axios.get("/contacts");
 
-      return response.data;
+      return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -20,9 +20,9 @@ export const addContact =  createAsyncThunk(
   "contacts/addContact",
   async ( {name, number }, thunkAPI) => {
     try {
-      const response = await axios.post("/contacts", { name, number });
+      const {data} = await axios.post("/contacts", { name, number });
 
-      return response.data;
+      return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
