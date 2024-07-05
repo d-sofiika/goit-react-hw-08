@@ -45,6 +45,37 @@ export const logOut = createAsyncThunk(
     }
   }
 );
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+    const persistedToken =  state.auth.token;
+     if (persistedToken === null) {
+            return thunkAPI.rejectWithValue('Token not found');
+        }
+
+    setHeaderToken(persistedToken);
+
+    try {
+      const { data } = await axios.get('/users/current');
+   
+      return data;
+    } catch (error) {
+      clearHeaderToken();
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (!auth.token) {
+        return false;
+        
+      }
+    }
+  }
+);
+
 /*
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
