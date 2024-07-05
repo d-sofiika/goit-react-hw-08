@@ -17,7 +17,7 @@ const handleFilter = (event) => {
   return (
     <div className={css.container}>
       <p className={css.text}>Find contacts by name</p>
-      <form onSubmit={(event) => event.preventDefault()}>
+      <form className={css.form} onSubmit={(event) => event.preventDefault()}>
         <input className={css.input} type='text' value={name} onChange={handleFilter} />
        </form>
       </div>

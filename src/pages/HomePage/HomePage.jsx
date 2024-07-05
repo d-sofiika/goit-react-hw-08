@@ -2,10 +2,12 @@
 import { GiRotaryPhone } from "react-icons/gi";
 const homePage = () => {
   return (
-    <div><p>
+    <div>
+      <h1>Your Phonebook in this App!</h1>
+      <p>
         <GiRotaryPhone size="124" />
       </p>
-      <h1>Phonebook</h1></div>
+      </div>
   )
 }
 

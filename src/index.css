@@ -12,20 +12,32 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+p{
+  margin: 10px;
+}
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-size: 20px;
+  font-weight: 700;
+      color: rgb(206, 149, 28);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+      color: rgb(206, 149, 28);
 }
-
+input{
+  padding: 8px;
+    margin-bottom: 10px;
+}
+label {
+  font-weight: 500;
+}
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: 30px 0;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -36,18 +48,26 @@ h1 {
 }
 
 button {
+    padding: 10px 15px;
+      background-color: transparent;
+      color: rgb(206, 149, 28);
+      border: 2px solid rgb(206, 149, 28);
+      cursor: pointer;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+
+
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
+
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+
+    background-color: rgb(206, 149, 28);
+    color: white;
+    border: 2px solid white;
+  
 }
 button:focus,
 button:focus-visible {
