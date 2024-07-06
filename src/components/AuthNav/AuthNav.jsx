@@ -5,7 +5,7 @@ const AuthNav = () => {
   return (
     <div className={css.navigation}>
       <Link to='/login'>Login</Link>
-      <Link to='/register'>Register</Link>
+      <Link to='/register'>Registration</Link>
     </div>
   );
 };

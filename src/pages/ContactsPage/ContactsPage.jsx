@@ -18,7 +18,7 @@ const ContactsPage = () => {
   useEffect(() => {
     dispatch(fetchContact());
   }, [dispatch]);
-  console.log("Filtered contacts:", filteredContacts);
+  
 
   return (
     <div>

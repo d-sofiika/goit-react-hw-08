@@ -1,7 +1,7 @@
 import { Formik, Field, Form } from "formik";
 import { useId } from 'react';
 
-const RegisterForm = ({submit}) => {
+const RegistrationForm = ({submit}) => {
   const nameId = useId();
   const emailId = useId();
   const passwordId = useId();
@@ -20,11 +20,11 @@ const RegisterForm = ({submit}) => {
         <Field name="email" id={emailId} />
         <label htmlFor="passwordId">Password:</label>
         <Field name="password" type="password" id={passwordId} />
-        <button type="submit">Register</button>
+        <button type="submit">Registration</button>
       </Form>
       
     </Formik>
   );
 };
 
-export default RegisterForm;
+export default RegistrationForm;

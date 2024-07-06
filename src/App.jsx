@@ -1,17 +1,21 @@
-import ContactList from "./components/ContactList/ContactList";
-import HomePage from "./pages/HomePage/HomePage";
-import { Suspense, useEffect } from "react";
+
+import { lazy, Suspense, useEffect } from "react";
 import css from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
-import ContactsPage from "./pages/ContactsPage/ContactsPage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import AppBar from "./components/AppBar/AppBar";
-import LogInPage from "./pages/LogInPage/LogInPage";
+
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
 import PublicRoute from "./components/PublicRoute/PublicRoute";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import Layout from "./components/Layout/Layout";
+
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const LogInPage = lazy(() => import("./pages/LogInPage/LogInPage"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
+const RegistrationPage = lazy(() => import("./pages/RegistrationPage/RegistrationPage"));
 
 function App() {
   const dispatch = useDispatch();
@@ -24,23 +28,24 @@ function App() {
     <b>Refreshing user, please wait...</b>
   ) : (
     <div id="box">
-      <AppBar />
-
+    
+  <Layout>
       <Suspense fallback={null}>
         <Routes className={css.wrapper}>
             <Route path="/" element={<HomePage />} />
                <Route element={<PublicRoute/>}>
             <Route path="/login" element={<LogInPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
           </Route>
           
-          <Route element={<PrivateRoute />}>
+          <Route element={<RestrictedRoute />}>
             <Route path="/contacts" element={<ContactsPage />} />
           </Route>
 
-          <Route path="*" element={<ContactList />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
-      </Suspense>
+          </Suspense>
+          </Layout>
     </div>
   );
 }

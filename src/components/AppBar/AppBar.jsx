@@ -2,8 +2,9 @@ import { useSelector } from "react-redux"
 import AuthNav from "../AuthNav/AuthNav"
 import Navigation from "../Navigation/Navigation"
 import { selectLoggedIn } from "../../redux/auth/selectors"
-import UserInfo from "../UserInfo/UserInfo"
+
 import css from "./appBar.module.css"
+import UserMenu from "../UserMenu/UserMenu"
 
 
 const AppBar = () => {
@@ -12,7 +13,7 @@ const AppBar = () => {
   return (
     <div className={css.boxNavigation}><Navigation />
       
-    {isLoggedIn ? <UserInfo/> : <AuthNav />}
+    {isLoggedIn ? <UserMenu/> : <AuthNav />}
     </div>
   )
 }
